@@ -7,6 +7,9 @@ package com.weheros.im2.message.queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+
 import com.weheros.im2.message.domain.Message;
 
 
@@ -17,8 +20,10 @@ import com.weheros.im2.message.domain.Message;
  * @author Yang
  * @date 2014年3月27日 下午7:26:12
  */
-public class RedisMessageQueue extends Thread {
-	private static final Lock lock = new ReentrantLock();
+public class RedisMessageQueue{
+	@Autowired
+	private RedisTemplate<String, Message> redisTemplate;
+	/*private static final Lock lock = new ReentrantLock();
     private static RedisMessageQueue messageQueue=null;
     
 	public static RedisMessageQueue getInstance(){
@@ -31,11 +36,12 @@ public class RedisMessageQueue extends Thread {
 	}
 	private RedisMessageQueue(String name){
 		super(name);
-	}
+	}*/
 	
-	public static void push(Message message) {
+	
+	public void push(Message message) {
 		// TODO Auto-generated method stub
-		
+		redisTemplate.boundListOps("common-message-queue").leftPush(message);
 	}
 
 
@@ -44,9 +50,6 @@ public class RedisMessageQueue extends Thread {
 		
 	}
 	
-	@Override
-	public void run() {
-		// 
-	}
+	
 
 }

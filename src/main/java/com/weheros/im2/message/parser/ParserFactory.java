@@ -7,13 +7,6 @@ package com.weheros.im2.message.parser;
  */
 public class ParserFactory {
 
-	public ParserFactory(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
 
 	public IParser getInstance(){
 		return null;

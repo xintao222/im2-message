@@ -1,23 +1,15 @@
 package com.weheros.im2.message.domain;
 
+import com.weheros.im2.message.type.Type;
+
 /**
- * @author Administrator
+ * @author Yang
  * @version 1.0
- * @created 27-??-2014 18:55:18
+ * @created 27-03-2014 18:55:18
  */
+@Type("file")
 public class File extends Message {
 
-	public File(){
-
-	}
-
-	/**
-	 * 
-	 * @exception Throwable
-	 */
-	public void finalize()
-	  throws Throwable{
-
-	}
+	
 
 }

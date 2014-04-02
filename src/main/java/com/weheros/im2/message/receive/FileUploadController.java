@@ -1,4 +1,4 @@
-package com.weheros.im2.message.front;
+package com.weheros.im2.message.receive;
 
 /**
  * @author Administrator
